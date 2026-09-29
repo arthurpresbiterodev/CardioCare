@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CardioCare</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        .escondido {
+            display: none !important;
+        }
+
+        /* LOGIN */
+
+        .tela-login {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            background: linear-gradient(
+                135deg,
+                #7f0000,
+                #d71920,
+                #ff4b55
+            );
+        }
+
+        .caixa-login {
+            width: 420px;
+            max-width: 100%;
+
+            padding: 45px 40px;
+
+            background: white;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            box-shadow: 0 20px 60px rgba(0,0,0,.25);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ffe4e6;
+
+            border-radius: 50%;
+
+            font-size: 42px;
+        }
+
+        .caixa-login h1 {
+            margin-top: 15px;
+
+            color: #b91c1c;
+
+            font-size: 32px;
+        }
+
+        .caixa-login p {
+            color: #777;
+
+            margin: 10px 0 25px;
+        }
+
+        .caixa-login input {
+            width: 100%;
+
+            padding: 15px;
+
+            margin-bottom: 14px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 12px;
+
+            background: #f9fafb;
+
+            font-size: 15px;
+        }
+
+        .caixa-login input:focus {
+            outline: none;
+
+            border-color: #e63946;
+
+            box-shadow: 0 0 0 3px #fee2e2;
+        }
+
+        .caixa-login button {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: linear-gradient(
+                135deg,
+                #c1121f,
+                #ef4444
+            );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .caixa-login button:hover {
+            transform: translateY(-2px);
+        }
+
+        .texto-cadastro {
+            font-size: 14px;
+        }
+
+        .texto-cadastro span {
+            color: #e63946;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        /* HEADER */
+
+        header {
+            height: 75px;
+
+            padding: 0 6%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background: white;
+
+            box-shadow: 0 2px 15px rgba(0,0,0,.08);
+        }
+
+        .logo-header {
+            color: #b91c1c;
+
+            font-size: 23px;
+
+            font-weight: bold;
+        }
+
+        .botao-sair {
+            padding: 10px 18px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #fee2e2;
+
+            color: #b91c1c;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        /* PRINCIPAL */
+
+        main {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 35px 20px 130px;
+        }
+
+
+        /* BANNER */
+
+        .boas-vindas {
+            padding: 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            color: white;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #991b1b,
+                    #dc2626,
+                    #ef4444
+                );
+
+            box-shadow:
+                0 15px 35px rgba(220,38,38,.25);
+        }
+
+        .boas-vindas p {
+            opacity: .8;
+        }
+
+        .boas-vindas h2 {
+            font-size: 34px;
+
+            margin: 5px 0;
+        }
+
+        .boas-vindas span {
+            opacity: .9;
+        }
+
+        .coracao-grande {
+            font-size: 80px;
+        }
+
+
+        /* CARDS */
+
+        .titulo-secao {
+            margin: 30px 0 18px;
+        }
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 20px;
+        }
+
+        .card {
+            padding: 25px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+
+            transition: .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icone-card {
+            font-size: 30px;
+
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #777;
+
+            font-size: 14px;
+        }
+
+        .card p {
+            margin-top: 8px;
+
+            color: #b91c1c;
+
+            font-size: 26px;
+
+            font-weight: bold;
+        }
+
+
+        /* BOTÕES */
+
+        .acoes {
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        .acoes button {
+            padding: 14px 22px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #dc2626;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .acoes button:hover {
+            background: #b91c1c;
+        }
+
+
+        /* PÁGINAS */
+
+        .cabecalho-pagina {
+            margin-bottom: 25px;
+        }
+
+        .cabecalho-pagina h2 {
+            font-size: 30px;
+
+            margin-bottom: 8px;
+        }
+
+        .cabecalho-pagina p {
+            color: #777;
+        }
+
+
+        /* FORMULÁRIO */
+
+        .formulario {
+            max-width: 650px;
+
+            padding: 30px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+        .formulario label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+        }
+
+        .formulario input {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 10px;
+        }
+
+        .formulario button {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #dc2626;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        /* TABELA */
+
+        .tabela-container {
+            padding: 15px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 15px;
+
+            text-align: left;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            color: #b91c1c;
+        }
+
+
+        /* ORIENTAÇÕES */
+
+        .orientacoes-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 20px;
+        }
+
+        .orientacao {
+            padding: 25px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+        .orientacao div {
+            font-size: 38px;
+
+            margin-bottom: 15px;
+        }
+
+        .orientacao h3 {
+            margin-bottom: 10px;
+        }
+
+        .orientacao p {
+            color: #666;
+
+            line-height: 1.5;
+        }
+
+
+        /* ALERTAS */
+
+        .alerta {
+            margin-top: 20px;
+
+            padding: 17px;
+
+            border-radius: 12px;
+        }
+
+        .alerta.normal {
+            background: #dcfce7;
+
+            color: #166534;
+        }
+
+        .alerta.atencao {
+            background: #fef3c7;
+
+            color: #92400e;
+        }
+
+        .alerta.informacao {
+            background: #e0f2fe;
+
+            color: #075985;
+        }
+
+        .aviso-medico {
+            margin-top: 25px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            background: #fff7ed;
+
+            color: #9a3412;
+        }
+
+
+        /* MENU */
+
+        .menu {
+            position: fixed;
+
+            bottom: 15px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: min(850px, calc(100% - 30px));
+
+            padding: 10px;
+
+            display: flex;
+
+            justify-content: space-around;
+
+            background: rgba(255,255,255,.96);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,.15);
+
+            z-index: 100;
+        }
+
+        .menu button {
+            padding: 10px 18px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: transparent;
+
+            color: #666;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 4px;
+
+            cursor: pointer;
+        }
+
+        .menu button:hover {
+            background: #fee2e2;
+
+            color: #b91c1c;
+        }
+
+
+        /* CELULAR */
+
+        @media(max-width: 800px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .orientacoes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .acoes {
+                flex-direction: column;
+            }
+
+            .boas-vindas h2 {
+                font-size: 25px;
+            }
+
+            .coracao-grande {
+                font-size: 50px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div id="telaLogin" class="tela-login">
+
+        <div class="caixa-login">
+
+            <div class="logo">
+                ❤️
+            </div>
+
+            <h1>CardioCare</h1>
+
+            <p>
+                Cuide do seu coração todos os dias.
+            </p>
+
+            <input
+                type="text"
+                id="loginNome"
+                placeholder="Digite seu nome"
+            >
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Digite seu e-mail"
+            >
+
+            <input
+                type="password"
+                id="loginSenha"
+                placeholder="Digite sua senha"
+            >
+
+            <button onclick="entrar()">
+                Entrar
+            </button>
+
+            <p class="texto-cadastro">
+                Ainda não possui cadastro?
+                <span onclick="mostrarCadastro()">
+                    Criar conta
+                </span>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div id="telaCadastro" class="tela-login escondido">
+
+        <div class="caixa-login">
+
+            <div class="logo">
+                ❤️
+            </div>
+
+            <h1>Criar conta</h1>
+
+            <p>
+                Comece a acompanhar sua saúde.
+            </p>
+
+            <input
+                type="text"
+                id="cadastroNome"
+                placeholder="Nome completo"
+            >
+
+            <input
+                type="email"
+                id="cadastroEmail"
+                placeholder="E-mail"
+            >
+
+            <input
+                type="password"
+                id="cadastroSenha"
+                placeholder="Senha"
+            >
+
+            <input
+                type="number"
+                id="cadastroIdade"
+                placeholder="Idade"
+            >
+
+            <button onclick="cadastrar()">
+                Cadastrar
+            </button>
+
+            <p class="texto-cadastro">
+                Já possui uma conta?
+                <span onclick="mostrarLogin()">
+                    Entrar
+                </span>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div id="sistema" class="escondido">
+
+        <header>
+
+            <div class="logo-header">
+                ❤️ CardioCare
+            </div>
+
+            <button
+                class="botao-sair"
+                onclick="sair()"
+            >
+                Sair
+            </button>
+
+        </header>
+
+
+        <main>
+
+            <section id="dashboard" class="pagina">
+
+                <div class="boas-vindas">
+
+                    <div>
+
+                        <p>
+                            Olá,
+                        </p>
+
+                        <h2 id="nomeUsuario">
+                            Usuário
+                        </h2>
+
+                        <span>
+                            Acompanhe sua saúde cardiovascular.
+                        </span>
+
+                    </div>
+
+                    <div class="coracao-grande">
+                        ❤️
+                    </div>
+
+                </div>
+
+
+                <h2 class="titulo-secao">
+                    Resumo de hoje
+                </h2>
+
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <div class="icone-card">
+                            ❤️
+                        </div>
+
+                        <h3>
+                            Pressão arterial
+                        </h3>
+
+                        <p id="pressaoAtual">
+                            -- / -- mmHg
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="icone-card">
+                            💓
+                        </div>
+
+                        <h3>
+                            Frequência cardíaca
+                        </h3>
+
+                        <p id="batimentosAtual">
+                            -- BPM
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="icone-card">
+                            📊
+                        </div>
+
+                        <h3>
+                            Medições
+                        </h3>
+
+                        <p id="quantidadeMedicoes">
+                            0
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="acoes">
+
+                    <button onclick="mostrarPagina('registro')">
+                        ➕ Registrar medição
+                    </button>
+
+                    <button onclick="mostrarPagina('historico')">
+                        📊 Ver histórico
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="alertaDashboard"
+                    class="alerta escondido"
+                ></div>
+
+            </section>
+
+
+            <section
+                id="registro"
+                class="pagina escondido"
+            >
+
+                <div class="cabecalho-pagina">
+
+                    <h2>
+                        Registrar medição
+                    </h2>
+
+                    <p>
+                        Informe seus dados cardiovasculares.
+                    </p>
+
+                </div>
+
+
+                <div class="formulario">
+
+                    <label>
+                        Pressão sistólica
+                    </label>
+
+                    <input
+                        type="number"
+                        id="sistolica"
+                        placeholder="Ex.: 120"
+                    >
+
+
+                    <label>
+                        Pressão diastólica
+                    </label>
+
+                    <input
+                        type="number"
+                        id="diastolica"
+                        placeholder="Ex.: 80"
+                    >
+
+
+                    <label>
+                        Frequência cardíaca
+                    </label>
+
+                    <input
+                        type="number"
+                        id="batimentos"
+                        placeholder="Ex.: 70 BPM"
+                    >
+
+
+                    <button onclick="registrarMedicao()">
+                        Salvar medição
+                    </button>
+
+
+                    <div id="mensagemRegistro"></div>
+
+                </div>
+
+            </section>
+
+
+            <section
+                id="historico"
+                class="pagina escondido"
+            >
+
+                <div class="cabecalho-pagina">
+
+                    <h2>
+                        Histórico
+                    </h2>
+
+                    <p>
+                        Veja suas medições anteriores.
+                    </p>
+
+                </div>
+
+
+                <div class="tabela-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Data
+                                </th>
+
+                                <th>
+                                    Pressão
+                                </th>
+
+                                <th>
+                                    BPM
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tabelaHistorico">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <section
+                id="orientacoes"
+                class="pagina escondido"
+            >
+
+                <div class="cabecalho-pagina">
+
+                    <h2>
+                        Orientações de saúde
+                    </h2>
+
+                    <p>
+                        Cuidados importantes para a saúde cardiovascular.
+                    </p>
+
+                </div>
+
+
+                <div class="orientacoes-grid">
+
+                    <div class="orientacao">
+
+                        <div>
+                            🥗
+                        </div>
+
+                        <h3>
+                            Alimentação
+                        </h3>
+
+                        <p>
+                            Tenha uma alimentação equilibrada,
+                            com frutas, verduras e legumes.
+                        </p>
+
+                    </div>
+
+
+                    <div class="orientacao">
+
+                        <div>
+                            🏃
+                        </div>
+
+                        <h3>
+                            Atividade física
+                        </h3>
+
+                        <p>
+                            A prática regular de atividade física
+                            contribui para a saúde cardiovascular.
+                        </p>
+
+                    </div>
+
+
+                    <div class="orientacao">
+
+                        <div>
+                            💧
+                        </div>
+
+                        <h3>
+                            Hidratação
+                        </h3>
+
+                        <p>
+                            Mantenha uma boa hidratação ao longo
+                            do dia.
+                        </p>
+
+                    </div>
+
+
+                    <div class="orientacao">
+
+                        <div>
+                            😴
+                        </div>
+
+                        <h3>
+                            Sono
+                        </h3>
+
+                        <p>
+                            Uma rotina adequada de sono contribui
+                            para o bem-estar.
+                        </p>
+
+                    </div>
+
+
+                    <div class="orientacao">
+
+                        <div>
+                            🚭
+                        </div>
+
+                        <h3>
+                            Evite o cigarro
+                        </h3>
+
+                        <p>
+                            O tabagismo está relacionado a problemas
+                            cardiovasculares.
+                        </p>
+
+                    </div>
+
+
+                    <div class="orientacao">
+
+                        <div>
+                            🩺
+                        </div>
+
+                        <h3>
+                            Acompanhamento
+                        </h3>
+
+                        <p>
+                            Consulte profissionais de saúde
+                            regularmente.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section
+                id="alertas"
+                class="pagina escondido"
+            >
+
+                <div class="cabecalho-pagina">
+
+                    <h2>
+                        Alertas
+                    </h2>
+
+                    <p>
+                        Acompanhe os avisos das suas medições.
+                    </p>
+
+                </div>
+
+
+                <div id="listaAlertas">
+
+                    <div class="alerta informacao">
+
+                        ℹ️ Registre uma medição para verificar
+                        possíveis alertas.
+
+                    </div>
+
+                </div>
+
+
+                <div class="aviso-medico">
+
+                    <strong>
+                        ⚠️ Importante
+                    </strong>
+
+                    <p>
+                        Este sistema é um protótipo educativo.
+                        Ele não substitui avaliação ou diagnóstico
+                        realizado por profissionais de saúde.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <nav class="menu">
+
+            <button onclick="mostrarPagina('dashboard')">
+                🏠
+                <span>Início</span>
+            </button>
+
+            <button onclick="mostrarPagina('registro')">
+                ❤️
+                <span>Registrar</span>
+            </button>
+
+            <button onclick="mostrarPagina('historico')">
+                📊
+                <span>Histórico</span>
+            </button>
+
+            <button onclick="mostrarPagina('orientacoes')">
+                🥗
+                <span>Saúde</span>
+            </button>
+
+            <button onclick="mostrarPagina('alertas')">
+                ⚠️
+                <span>Alertas</span>
+            </button>
+
+        </nav>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
